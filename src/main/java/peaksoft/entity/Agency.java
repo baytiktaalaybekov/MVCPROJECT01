@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 
 import java.util.List;
 
-import static jakarta.persistence.CascadeType.MERGE;
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "agency")
@@ -22,18 +23,18 @@ public class Agency {
     private String name;
     private String country;
     @Column(name = "phone_number")
-    private int phoneNumber;
-
+    private String phoneNumber;
     private String email;
+    @Column(length = 10000000)
     private String image_Link;
 
-    @ManyToMany(mappedBy = "agencies",cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH})
+    @ManyToMany(mappedBy = "agencies",cascade = ALL)
     private List<Customer> customers;
 
-    @OneToMany(mappedBy = "agencies",cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH})
+    @OneToMany(mappedBy = "agencies",cascade = ALL)
     private List<House> house;
 
-    public Agency(String name, String country, int phoneNumber, String email,String image_Link) {
+    public Agency(String name, String country, String phoneNumber, String email,String image_Link) {
         this.name = name;
         this.country = country;
         this.phoneNumber = phoneNumber;

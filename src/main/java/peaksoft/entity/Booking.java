@@ -5,8 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import static jakarta.persistence.CascadeType.MERGE;
-import static jakarta.persistence.CascadeType.REMOVE;
+import static jakarta.persistence.CascadeType.*;
 
 
 @Entity
@@ -24,10 +23,10 @@ public class Booking {
     @Transient
     private Long house_id;
 
-    @OneToOne(cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH})
+    @OneToOne(cascade = {PERSIST, DETACH, MERGE, REFRESH})
     private House houses;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH,REMOVE})
+    @ManyToOne(cascade = {PERSIST, DETACH, MERGE, REFRESH})
     private Customer customers;
 
 }

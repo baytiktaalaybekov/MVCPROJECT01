@@ -25,17 +25,19 @@ public class AgencySeImpl implements AgencySe {
     }
 
     @Override
-    public AgencyRe getAgencyById(Long id) {
-        return null;
+    public Agency getAgencyById(Long id) {
+        return agencyRe.getAgencyById(id);
     }
 
     @Override
     public void updateAgency(Long id, Agency agency) {
+        agencyRe.updateAgency(id,agency);
 
     }
 
     @Override
     public void deleteAgencyById(Long id) {
+        agencyRe.deleteAgencyById(id);
 
     }
 }

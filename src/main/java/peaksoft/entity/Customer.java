@@ -9,8 +9,7 @@ import peaksoft.enums.Gender;
 import java.time.LocalDate;
 import java.util.List;
 
-import static jakarta.persistence.CascadeType.MERGE;
-import static jakarta.persistence.CascadeType.REMOVE;
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "customer")
@@ -31,10 +30,10 @@ public class Customer {
     private int phoneNumber;
     private LocalDate date_of_birth;
 
-    @ManyToMany(cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH,REMOVE})
+    @ManyToMany(cascade = {DETACH, MERGE,REFRESH, PERSIST})
     private List<Agency> agencies;
 
-    @OneToMany(mappedBy = "customers",cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH})
+    @OneToMany(mappedBy = "customers",cascade = {ALL})
     private List<Booking> booking;
 
 

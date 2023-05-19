@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import peaksoft.enums.HouseType;
 
-import static jakarta.persistence.CascadeType.MERGE;
-import static jakarta.persistence.CascadeType.REMOVE;
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "house")
@@ -26,14 +25,15 @@ public class House {
     private String country;
     private String description;
     private Boolean is_Booked;
+    private String image_Link;
 
-    @OneToOne(mappedBy = "houses",cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH})
+    @OneToOne(mappedBy = "houses",cascade = {ALL})
     private Booking bookings;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, MERGE,CascadeType.REFRESH,REMOVE})
+    @ManyToOne(cascade = {DETACH, MERGE,REFRESH, PERSIST})
     private Agency agencies;
 
-    public House(HouseType houseType, String address, int price, int room, String country, String description, Boolean is_Booked) {
+    public House(HouseType houseType, String address, int price, int room, String country, String description, Boolean is_Booked,String image_Link) {
         this.houseType = houseType;
         this.address = address;
         this.price = price;
@@ -41,5 +41,6 @@ public class House {
         this.country = country;
         this.description = description;
         this.is_Booked = is_Booked;
+        this.image_Link= image_Link;
     }
 }
