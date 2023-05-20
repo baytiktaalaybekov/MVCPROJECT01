@@ -17,7 +17,7 @@ th:method="POST" th:action="@{/agencies/profile/{id} (id=${agency.getId()})}" th
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul  class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" th:href="@{/{agencyId}/houses(agencyId=${agency.getId()})}">Houses</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/houses/{agencyId}(agencyId=${agency.getId()})}">Houses</a>
             </li>
             </ul>
             <form class="d-flex" role="search">

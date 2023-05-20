@@ -45,7 +45,7 @@ public class HouseReImpl implements HouseRe {
 
     @Override
     public void deleteHouse(Long id)                                 {
-        entityManager.persist(entityManager.find(House.class,id));
+        entityManager.remove(entityManager.find(House.class,id));
     }
 
     @Override

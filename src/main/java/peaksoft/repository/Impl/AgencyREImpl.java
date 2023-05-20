@@ -23,7 +23,7 @@ public class AgencyREImpl implements AgencyRe {
 
     @Override
     public List<Agency> getAllAgency() {
-        return entityManager.createQuery("from Agency a", Agency.class).getResultList();
+        return entityManager.createQuery("from Agency a  ", Agency.class).getResultList();
     }
 
 
