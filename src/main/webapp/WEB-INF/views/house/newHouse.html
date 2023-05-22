@@ -9,21 +9,12 @@
 <body>
 <h2 class="title"> New House </h2>
 <div class="d-flex justify-content-center">
-    <form th:method="POST" th:action="@{/houses/{agencyId}/save(agencyId=${agencyId})}" th:object="${newHouse}">
+    <form th:method="POST" th:action="@{/houses/{agencyId}/save (agencyId=${agencyId})}" th:object="${newHouse}">
         <input type="hidden" th:field="*{id}">
         <div class="form-group">
             <div>
                 <label class="form-label"> HouseType</label>
-<!--                <label for="houseType" class="form-label">HouseType</label>-->
             </div>
-<!--            <input type="text" th:field="*{houseType}" id="houseType" class="form-control form-control-lg">-->
-<!--            <div style="color: red" th:if="${#fields.hasErrors('houseType')}">-->
-<!--                <span th:errors="*{houseType}"></span>-->
-<!--            </div>-->
-<!--            <div th:if="${newHouse}">-->
-<!--                <p style="color: red;">[[${HouseType}]]</p>-->
-<!--            </div>-->
-<!--        </div>-->
             <div>
                 <select th:field="*{houseType}">
                     <option th:value="${apartment}">APARTMENT</option>
@@ -70,11 +61,6 @@
             </div>
         </div>
         <div class="form-group">
-<!--            <label for="is_Booked" class="form-label">Is booked</label>-->
-<!--            <input type="text" th:field="*{is_Booked}" id="is_Booked" class="form-control form-control-lg">-->
-<!--            <div style="color: red" th:if="${#fields.hasErrors('is_Booked')}">-->
-<!--                <span th:errors="*{is_Booked}"></span>-->
-<!--            </div>-->
             <div>
                 <label class="form-label"> is_Booked</label>
             </div>
@@ -95,7 +81,7 @@
         <div class="col-12 " style="text-align: center">
             <button type="submit">Save</button>
         </div>
-
+        </div>
         </div>
     </form>
 </div>

@@ -1,4 +1,5 @@
 package peaksoft.repository.Impl;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
@@ -6,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import peaksoft.entity.Agency;
 import peaksoft.repository.AgencyRe;
+
 import java.util.List;
 
 @Repository
@@ -27,10 +29,9 @@ public class AgencyREImpl implements AgencyRe {
     }
 
 
-
     @Override
     public Agency getAgencyById(Long id) {
-        return entityManager.find(Agency.class,id);
+        return entityManager.find(Agency.class, id);
     }
 
     @Override
@@ -46,7 +47,7 @@ public class AgencyREImpl implements AgencyRe {
 
     @Override
     public void deleteAgencyById(Long id) {
-        entityManager.remove(entityManager.find(Agency.class,id));
+        entityManager.remove(entityManager.find(Agency.class, id));
     }
 
     @Override

@@ -1,7 +1,6 @@
 package peaksoft.api;
 
 import lombok.RequiredArgsConstructor;
-import org.dom4j.rule.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +16,15 @@ public class HouseApi {
     private final HouseSe houseSe;
 
     @GetMapping()
-    public String getAllHouse (@PathVariable Long agencyId, Model model){
+    public String getAllHouse(@PathVariable Long agencyId, Model model){
         model.addAttribute("house",houseSe.getAllHouse(agencyId));
         model.addAttribute(agencyId);
         return "house/houses";
+
     }
+
     @GetMapping("/new")
-    public String createHouse(Model model, @PathVariable("agencyId") Long agencyId){
+    public String createHouse(Model model, @PathVariable Long agencyId){
         model.addAttribute("newHouse", new House());
         model.addAttribute(agencyId);
         model.addAttribute("apartment",HouseType.APARTMENT.name());
@@ -31,6 +32,7 @@ public class HouseApi {
         model.addAttribute("castle",HouseType.CASTLE.name());
         model.addAttribute("villa",HouseType.VILLA.name());
         return "house/newHouse";
+
     }
 
     @PostMapping("/save")
@@ -38,7 +40,9 @@ public class HouseApi {
                             @PathVariable("agencyId") Long id){
         houseSe.saveHouse(id,house);
         return "redirect:/houses/" + id;
+
     }
+
 
     @GetMapping("/{houseId}/deleteHouse")
     public String deleteHouse(@PathVariable Long agencyId,
@@ -46,13 +50,27 @@ public class HouseApi {
         houseSe.deleteHouse(houseId);
         return "redirect:/houses/{agencyId}";
 
+
     }
 
-    @GetMapping("/")
+    @GetMapping("/{houseId}/edit")
     public String editHouse(@PathVariable Long agencyId,
                             @PathVariable Long houseId, Model model){
-        model.addAttribute("");
-        return null;
+        model.addAttribute("house",houseSe.getHouseById(houseId));
+        return "house/updateHouse";
+
+    }
+
+    @PutMapping("/{houseId}/update")
+    public String updateHouse(@PathVariable Long agencyId,@PathVariable Long houseId, Model model,
+                              @ModelAttribute ("house") House house){
+        houseSe.updateHouse(houseId,house);
+        model.addAttribute("apartment",HouseType.APARTMENT.name());
+        model.addAttribute("cottage",HouseType.COTTAGE.name());
+        model.addAttribute("castle",HouseType.CASTLE.name());
+        model.addAttribute("villa",HouseType.VILLA.name());
+        return "redirect:/houses/{agencyId}";
+
     }
 
 

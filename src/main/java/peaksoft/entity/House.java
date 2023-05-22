@@ -10,30 +10,32 @@ import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "house")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "House_SEQ")
-    @SequenceGenerator(name = "House_SEQ",sequenceName = "House_id_gen",allocationSize = 1)
+    @SequenceGenerator(name = "House_SEQ", sequenceName = "House_id_gen", allocationSize = 1)
     private Long id;
     @Enumerated(EnumType.STRING)
     private HouseType houseType;
     private String address;
-    private int price;
-    private int room;
+    private String price;
+    private String room;
     private String country;
     private String description;
     private Boolean is_Booked;
+    @Column(length = 100000000)
     private String image_Link;
 
-    @OneToOne(mappedBy = "houses",cascade = {ALL})
+    @OneToOne(mappedBy = "houses", cascade = {ALL})
     private Booking bookings;
 
-    @ManyToOne(cascade = {DETACH, MERGE,REFRESH, PERSIST})
+    @ManyToOne(cascade = {DETACH, MERGE, REFRESH, PERSIST})
     private Agency agencies;
 
-    public House(HouseType houseType, String address, int price, int room, String country, String description, Boolean is_Booked,String image_Link) {
+    public House(HouseType houseType, String address, String price, String room, String country, String description, Boolean is_Booked, String image_Link) {
         this.houseType = houseType;
         this.address = address;
         this.price = price;
@@ -41,6 +43,6 @@ public class House {
         this.country = country;
         this.description = description;
         this.is_Booked = is_Booked;
-        this.image_Link= image_Link;
+        this.image_Link = image_Link;
     }
 }

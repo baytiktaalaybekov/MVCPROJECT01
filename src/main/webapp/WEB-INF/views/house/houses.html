@@ -35,7 +35,7 @@
         </button>
     </div>
 </nav>
-<div class="container m-3" style="width: %; margin: 0 auto">
+<div class="container m-3" style="width: 100%; margin: 0 auto">
 <div class="card" style="width: 18rem;" th:each="houses:${house}">
     <img th:src="${houses.getImage_Link()}" class="card-img-top" alt="Image">
     <div class="card-body">
@@ -54,7 +54,11 @@
             <input type="submit" th:value="Delete">
         </form>
     </div>
-
+    <div class="home col-12">
+        <form class="updateButton" th:method="GET" th:action="@{/houses/{agencyId}/{houseId}/edit (agencyId=${agencyId},houseId=${houses.getId()})}">
+            <input type="submit" th:value="Update">
+        </form>
+    </div>
 </div>
 </div>
 <br>

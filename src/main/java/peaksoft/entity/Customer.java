@@ -20,14 +20,19 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_SEQ")
     @SequenceGenerator(name = "Customer_SEQ",sequenceName = "Customer_id_gen",allocationSize = 1)
     private Long id;
+
     private String name;
+
     private String surname;
 
     private String email;
+
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private String phoneNumber;
+
     private LocalDate date_of_birth;
 
     @ManyToMany(cascade = {DETACH, MERGE,REFRESH, PERSIST})
@@ -37,7 +42,7 @@ public class Customer {
     private List<Booking> booking;
 
 
-    public Customer(String name, String surname, String email, Gender gender, int phoneNumber, LocalDate date_of_birth) {
+    public Customer(String name, String surname, String email, Gender gender, String phoneNumber, LocalDate date_of_birth) {
         this.name = name;
         this.surname = surname;
         this.email = email;

@@ -21,12 +21,15 @@ public class Booking {
     @Transient
     private Long customer_id;
     @Transient
+
     private Long house_id;
 
     @OneToOne(cascade = {PERSIST, DETACH, MERGE, REFRESH})
+    @JoinColumn(name = "houses_id")
     private House houses;
 
     @ManyToOne(cascade = {PERSIST, DETACH, MERGE, REFRESH})
+    @JoinColumn(name = "customers_id")
     private Customer customers;
 
 }

@@ -28,19 +28,12 @@ public class HouseReImpl implements HouseRe {
     @Override
     public List<House> getAllHouses() {
         return entityManager.createQuery("select House ", House.class).getResultList();
-//        try {
-//            return entityManager.createQuery("select h House h", House.class).getResultList();
-//        }catch (MyException e){
-//            System.out.println(e.getMessage());
-//        }
-
     }
 
     @Override
     public List<House> getAllHouse(Long agencyId) {
         return entityManager.createQuery("from House h join Agency a where  h.agencies.id = :agencyId", House.class)
                 .setParameter("agencyId",agencyId).getResultList();
-
     }
 
     @Override
