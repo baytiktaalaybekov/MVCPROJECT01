@@ -39,9 +39,16 @@ public class BookingApi {
     @PostMapping("/save")
     public String saveBooking(@ModelAttribute("newBooking") Booking booking,
                               @RequestParam("houseId") Long houseId,
-                              @RequestParam("customerId") Long customerId){
+                              @RequestParam("customerId") Long customerId, @PathVariable Long agencyId){
         bookingSe.saveBooking(customerId,houseId,booking);
         return "redirect:/bookings/{agencyId}";
+    }
+    @DeleteMapping("{bookingId}/delete")
+    public String deleteBooking(@PathVariable Long bookingId,
+                                @PathVariable Long agencyId){
+        bookingSe.deleteBookingById(bookingId);
+        return "redirect:/bookings/{agencyId}";
+
     }
 
 
