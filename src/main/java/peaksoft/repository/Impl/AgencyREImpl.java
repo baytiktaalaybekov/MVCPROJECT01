@@ -6,8 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import peaksoft.entity.Agency;
+import peaksoft.entity.House;
 import peaksoft.repository.AgencyRe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -51,7 +53,16 @@ public class AgencyREImpl implements AgencyRe {
     }
 
     @Override
-    public List<Agency> search(String keyword) {
-        return null;
+    public List<Agency> search(String word) {
+        if(word == null || word.isEmpty()) return entityManager.createQuery("from Agency a", Agency.class).getResultList();
+        else return entityManager.createQuery("select a from Agency a where a.name ilike :word or a.country ilike :word", Agency.class)
+                .setParameter("word", "%" + word + "%").setParameter("word", word)
+                .getResultList();
+    }
+
+    @Override
+    public List<House> getAllHouseToAgency(Long agencyId) {
+        return entityManager.createQuery("select h from House h join h.agencies a where a.id = :agencyId",House.class)
+                .setParameter("agencyId",agencyId).getResultList();
     }
 }

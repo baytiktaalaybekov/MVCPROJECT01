@@ -9,6 +9,7 @@ import peaksoft.entity.Agency;
 import peaksoft.entity.Customer;
 import peaksoft.repository.CustomerRE;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -52,11 +53,15 @@ public class CustomerReImpl implements CustomerRE {
     }
 
     @Override
-    public void assignCustomerToAgency(Long customerId, Long agencyId) {
+    public void assignCustomerToAgency(Long customerId, List<Long> agencyId) {
         Customer customer = entityManager.find(Customer.class, customerId);
-        Agency agency = entityManager.find(Agency.class, agencyId);
-        customer.getAgencies().add(agency);
-        agency.getCustomers().add(customer);
-        entityManager.persist(customer);
+        List<Agency> agencies = new ArrayList<>();
+        for (Long id : agencyId) {
+            Agency agency = entityManager.find(Agency.class, id);
+            customer.getAgencies().add(agency);
+            agency.getCustomers().add(customer);
+        }
+        entityManager.merge(customer);
+        entityManager.merge(agencies);
     }
 }

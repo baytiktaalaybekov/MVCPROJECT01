@@ -29,6 +29,7 @@ public class HouseSeImpl implements HouseSe {
     }
 
 
+
     @Override
     public void deleteHouse(Long id) {
         houseRe.deleteHouse(id);

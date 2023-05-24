@@ -27,7 +27,11 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-
+<form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+<br>
 <div class="container m-3" style="width: 100%; margin: 0 auto">
 <div class="card" style="width: 18rem;display: flex; margin-right: 25px; margin-top: 25px"
  th:each="agenciess:${agencies}">
@@ -66,6 +70,11 @@
     <a class="btn-donate" role="button" href="/agencies/new">add new Agency</a></p>
 
 <br/>
+    <br>
+    <br>
+    <br>
+
+
 </div>
 </body>
 

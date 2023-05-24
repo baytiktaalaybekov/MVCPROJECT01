@@ -8,14 +8,15 @@ public interface BookingRe {
 
     void saveBooking(Booking booking);
 
-    List<Booking> getAll();
+    List<Booking> getAll(Long id);
 
-    List<Booking> getAllHouse();
+    List<Booking> getAllBooking();
 
      Booking getBookingById(Long id);
 
-    void updateBooking(Long id, Booking booking);
+    void updateBooking( Booking booking);
 
     void deleteBookingById(Long id);
+
 
 }

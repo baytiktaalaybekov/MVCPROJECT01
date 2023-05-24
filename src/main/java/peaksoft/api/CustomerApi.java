@@ -5,7 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import peaksoft.entity.Customer;
 import peaksoft.enums.Gender;
+import peaksoft.service.AgencySe;
 import peaksoft.service.CustomerSe;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/customers/{agencyId}")
@@ -13,6 +16,7 @@ import peaksoft.service.CustomerSe;
 public class CustomerApi {
 
     private final CustomerSe customerSe;
+    private final AgencySe agencySe;
 
     @GetMapping()
     public String getAllCustomer(@PathVariable Long agencyId, Model model){
@@ -58,20 +62,19 @@ public class CustomerApi {
         return "redirect:/customers/{agencyId}";
     }
 
-//    @GetMapping("assign/{customerId}")
-//    public String assign(@PathVariable Long agencyId,
-//                                         @PathVariable Long customerId,Model model){
-//        model.addAttribute("customer",new Customer());
-//        model.addAttribute("assignCustomer",customerSe.getCustomerById(customerId));
-//        return "customer/assignCustomers";
-//    }
-//    @PostMapping("/assignCustomerToAgency/{customerId}")
-//    public String assignCustomerToAgency(@PathVariable Long customerId,
-//                                         @PathVariable Long agencyId,
-//                                         @ModelAttribute ("assignCustomer") Customer customer) {
-//        customerSe.assignCustomerToAgency(customerId, customer.getId());
-//        return "redirect:/customers/{agencyId}";
-//    }
+    @GetMapping("assign/{customerId}")
+    public String assign(@PathVariable Long agencyId,
+                         @PathVariable Long customerId,Model model){
+        model.addAttribute("assignCustomer",customerId);
+        model.addAttribute("assignAgency",agencySe.getAllAgency());
+        return "customer/assignCustomers";
+    }
+    @PostMapping("/assignCustomerToAgency/{customerId}")
+    public String assignCustomerToAgency(@PathVariable Long customerId,
+                                         @PathVariable List<Long> agencyId) {
+        customerSe.assignCustomerToAgency(customerId,agencyId);
+        return "redirect:/customers/{agencyId}";
+    }
 
 
 

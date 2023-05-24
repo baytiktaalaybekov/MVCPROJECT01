@@ -25,7 +25,7 @@ public class House {
     private String room;
     private String country;
     private String description;
-    private Boolean is_Booked;
+    private Boolean is_Booked = false;
     @Column(length = 100000000)
     private String image_Link;
 

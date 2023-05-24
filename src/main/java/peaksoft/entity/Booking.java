@@ -18,11 +18,11 @@ public class Booking {
     @SequenceGenerator(name = "Booking_SEQ",sequenceName = "Booking_id_gen",allocationSize = 1)
     private Long id;
 
-    @Transient
-    private Long customer_id;
-    @Transient
-
-    private Long house_id;
+//    @Transient
+//    private Long customer_id;
+//    @Transient
+//
+//    private Long house_id;
 
     @OneToOne(cascade = {PERSIST, DETACH, MERGE, REFRESH})
     @JoinColumn(name = "houses_id")

@@ -39,7 +39,7 @@ public class CustomerSeImpl implements CustomerSe {
     }
 
     @Override
-    public void assignCustomerToAgency(Long customerId, Long agencyId) {
+    public void assignCustomerToAgency(Long customerId, List<Long> agencyId) {
         customerRE.assignCustomerToAgency(customerId, agencyId);
     }
 }

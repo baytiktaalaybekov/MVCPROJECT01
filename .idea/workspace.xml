@@ -10,9 +10,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59f7433e-e6a3-462f-9423-45ed4952e6d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/agency/searchPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/booking/updateBooking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9b399553-0af6-47c7-9546-e6b9899d503f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9b399553-0af6-47c7-9546-e6b9899d503f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9b399553-0af6-47c7-9546-e6b9899d503f/storage_v2/_src_/database/postgres.edMnLQ/schema/postgres.edMnLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9b399553-0af6-47c7-9546-e6b9899d503f/storage_v2/_src_/database/postgres.edMnLQ/schema/postgres.edMnLQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/api/AgencyApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/api/AgencyApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/api/BookingApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/api/BookingApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/api/CustomerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/api/CustomerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/entity/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/entity/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/entity/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/AgencyRe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/AgencyRe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/BookingRe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/BookingRe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/CustomerRE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/CustomerRE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/Impl/AgencyREImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/Impl/AgencyREImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/Impl/BookingReImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/Impl/BookingReImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/Impl/CustomerReImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/Impl/CustomerReImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/service/AgencySe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/service/AgencySe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/service/BookingSe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/service/BookingSe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/service/CustomerSe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/service/CustomerSe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/AgencySeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/AgencySeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/BookingSeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/BookingSeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/CustomerSeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/CustomerSeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/HouseSeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/service/Impl/HouseSeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/agency/agenciess.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/agency/agenciess.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/agency/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/agency/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/booking/bookings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/booking/bookings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/booking/newBooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/booking/newBooking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customer/assignCustomers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customer/assignCustomers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +223,9 @@
       <workItem from="1684466963471" duration="1387000" />
       <workItem from="1684470341734" duration="29130000" />
       <workItem from="1684554913427" duration="44209000" />
-      <workItem from="1684729417343" duration="31160000" />
+      <workItem from="1684729417343" duration="36717000" />
+      <workItem from="1684815347059" duration="6129000" />
+      <workItem from="1684821899949" duration="22581000" />
     </task>
     <servers />
   </component>

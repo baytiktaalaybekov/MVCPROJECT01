@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface BookingSe {
 
-    void saveBooking(Long houseId,Long customerId,Booking booking);
+    void saveBooking(Booking booking);
 
-    List<Booking> getAll();
+    List<Booking> getAllBooking();
+
+    List<Booking> getAll(Long id);
 
     Booking getBookingById(Long id);
 

@@ -15,7 +15,7 @@ public class AgencyApi {
     private final AgencySe agencySe;
 
     @GetMapping
-    public String getAllAgency(Model model) {
+    public String getAllAgency(Model model,@RequestParam(value = "word",required = false)String word) {
         model.addAttribute("agencies", agencySe.getAllAgency());
         return "agency/agenciess";
     }
@@ -56,4 +56,18 @@ public class AgencyApi {
         agencySe.updateAgency(id, agency);
         return "redirect:/agencies";
     }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("search") String search,Model model){
+        model.addAttribute("searching",agencySe.search(search));
+        return "agency/searchPage";
+    }
+
+    @GetMapping("/getAgency/{agencyId}")
+    public String resultSearching(@PathVariable Long agencyId,Model model){
+        model.addAttribute("houseList",agencySe.getAllHouseToAgency(agencyId));
+        return "agency/newPageforSearch";
+
+    }
+
 }

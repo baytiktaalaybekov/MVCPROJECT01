@@ -1,6 +1,7 @@
 package peaksoft.service;
 
 import peaksoft.entity.Agency;
+import peaksoft.entity.House;
 import peaksoft.repository.AgencyRe;
 
 import java.util.List;
@@ -12,4 +13,7 @@ public interface AgencySe {
     Agency getAgencyById(Long id);
     void updateAgency(Long id, Agency agency);
     void deleteAgencyById(Long id);
+    List<Agency> search (String word);
+    List<House> getAllHouseToAgency(Long agencyId);
+
 }

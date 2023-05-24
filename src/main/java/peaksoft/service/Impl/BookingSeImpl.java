@@ -1,10 +1,12 @@
 package peaksoft.service.Impl;
 
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import peaksoft.entity.Booking;
 import peaksoft.entity.Customer;
 import peaksoft.entity.House;
+import peaksoft.repository.AgencyRe;
 import peaksoft.repository.BookingRe;
 import peaksoft.repository.CustomerRE;
 import peaksoft.repository.HouseRe;
@@ -19,20 +21,32 @@ public class BookingSeImpl implements BookingSe {
     private final BookingRe bookingRe;
     private final HouseRe houseRe;
     private final CustomerRE customerRe;
+    private final AgencyRe agencyRe;
+
+    private final EntityManager entityManager;
 
 
     @Override
-    public void saveBooking(Long houseId, Long customerId, Booking booking) {
-        House houseById = houseRe.getHouseById(houseId);
-        Customer customerById = customerRe.getCustomerById(customerId);
-        booking.setHouses(houseById);
-        booking.setCustomers(customerById);
-        bookingRe.saveBooking(booking);
+    public void saveBooking(Booking booking) {
+        House house = entityManager.find(House.class, booking.getHouses());
+        if (house.getIs_Booked()){
+            throw new RuntimeException("House with id %s already reserved.".formatted(house.getId()));}
+        Customer customer = entityManager.find(Customer.class, booking.getCustomers());
+        Booking booking1 = new Booking();
+        booking1.setHouses(house);
+        booking1.setCustomers(customer);
+        house.setIs_Booked(true);
+        bookingRe.saveBooking(booking1);
     }
 
     @Override
-    public List<Booking> getAll() {
-        return bookingRe.getAll();
+    public List<Booking> getAllBooking() {
+        return bookingRe.getAllBooking();
+    }
+
+    @Override
+    public List<Booking> getAll(Long id) {
+        return bookingRe.getAll(id);
     }
 
     @Override
@@ -42,8 +56,18 @@ public class BookingSeImpl implements BookingSe {
 
     @Override
     public void updateBooking(Long id, Booking booking) {
-        bookingRe.updateBooking(id,booking);
+        Customer customer = customerRe.getCustomerById(booking.getCustomers().getId());
+        House house = houseRe.getHouseById(booking.getHouses().getId());
+        if (house.getIs_Booked()){
+            throw new RuntimeException("House with id [%s] already reserved".formatted(house.getId()));
+        }
+        Booking booking1 = bookingRe.getBookingById(id);
+        booking1.setHouses(house);
+        booking1.setCustomers(customer);
+        System.out.println("in service");
+        bookingRe.updateBooking(booking);
     }
+
 
     @Override
     public void deleteBookingById(Long id) {
